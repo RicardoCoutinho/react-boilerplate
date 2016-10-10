@@ -1,27 +1,29 @@
 language: node_js
 
 node_js:
-  - 6
-  - 5
-  - 4
+- 6
+- 5
+- 4
 
 script: npm run build
 
 install:
-  - npm i -g npm@latest
-  - npm install
+- npm i -g npm@latest
+- npm install
 
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 
 notifications:
   email:
     on_failure: change
+  slack:
+    secure: RggUArjrQoOuEhDefToNwflniVoYDmYYUwuGrsN5/UbnZ1QRDx3Q5y2C0+1S5eF43SEai8hXNvu1NSiomJLPu+hJV8a1FByScA5QSOmkMJ847jvXDx4vvMCnAqOPb8+ECfyccs/Tk1uIhVGYFdpr8fn2vTQwVVMmcNSWeevha/GmfRKObM9B+2GKMqZytusbE5ZrRtVb7n8KYoXvRPSnYT3ajYtEizQBRYGYPfo4Hi5Ved2w2s4f4svDgcuTJK2/CJHDH1gRxZ3lEeULNQH9m7U2/fE+0s7dzK47KYllrHZc21iC6YmKRdz4oLxFxpHoFp8v48Ms8qkB5Oy1pJVz9zg4EOHfyfxjTSHQ2ojs9+tVBEa5bzrTFhqInRVKreP/COCudmVu4/u2djBTGaR9CUZTW0sMtMp+0M4yWXRpABWg9UVkS70oOLxqZ7dn7jkw2D3eKOeNsIWdpNNDY3q3QgALNxMMgfMoOOkJfHjbZx3cw2Zo4ofpI09dFUTzNUaa1L59ykHqsqqRNPAZ3bDS4xo4saJD6YiycpQvTGLO/CKSGQ+5/HBN/761CYecD5obQWqNqbAOoTlkOrMS++ASCVWywFeswTzK56ztbKvRRvATbXWnCWIhIXgV/B/EtCV+8OzgAgovw1SssYuXysTuOztLtCS9PtSz+vGRI42GSaw=
 
-after_success: 'npm run coveralls'
+after_success: npm run coveralls
 
 cache:
   directories:
-    - node_modules
+  - node_modules
